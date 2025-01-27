@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { TimerDisplay } from "./TimerDisplay";
-import { TimeInput } from "./TimeInput";
 import { TimerControls } from "./TimerControls";
 import { useTimer } from "../hooks/useTimer";
 import { useTimerStore } from "../store/store";
+import { DigitalDigit } from "./DigitalDigit";
 
 export const Timer: React.FC = () => {
   const { isRunning } = useTimerStore();
@@ -13,7 +13,7 @@ export const Timer: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <TimerDisplay />
-      {!isRunning && <TimeInput />}
+      {!isRunning && <DigitalDigit />}
       <TimerControls />
       <audio ref={audioRef} src="./beep.mp3"></audio>
     </div>
